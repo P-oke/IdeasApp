@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header|Dashboard</title>
+  </head>
+
+  <body>
+    <p>An app to create your ideas and modify it as you wish</p>
+    <a href="/auth/logout" class="link">Logout</a>
+  </body>
+  <style>
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    a.link {
+      background-color: rgb(60, 60, 233);
+      position: absolute;
+      color: white;
+      top: 15px;
+      right: 80px;
+      padding: 10px;
+      border-radius: 7px;
+    }
+    a.link:hover {
+      background-color: rgb(105, 105, 207);
+    }
+    @media (max-width: 600px) {
+      p {
+        font-size: 12px;
+        text-align: center;
+      }
+      a.link {
+        font-size: 10px;
+        right: 0;
+        padding: 6px;
+      }
+    }
+  </style>
+</html>

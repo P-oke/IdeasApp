@@ -1,0 +1,42 @@
+<h3>Add Idea</h3>
+<div class="row">
+  <form action="/ideas" method="POST" class="col s12">
+    <div style="color: red"><%=error.message%></div>
+    <div class="row">
+      <div class="input-field col s12">
+        <h5 class="active">Title</h5>
+        <input
+          placeholder="enter your title"
+          type="text"
+          name="title"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <h5>Input your Idea:</h5>
+        <textarea
+          rows="3"
+          cols="8"
+          name="details"
+          id="body"
+          class="materialize-textarea"
+          required
+        ></textarea>
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <input
+        type="submit"
+        value="Save"
+        class="btn"
+        style="margin-right: 15px"
+      />
+      <a href="/dashboard" class="btn orange">Cancel</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<h3>Edit Idea</h3>
+<div class="row">
+  <form action="/ideas/<%=idea._id%>" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="row">
+      <div class="input-field col s12">
+        <h5>Title</h5>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          value="<%=idea.title%>"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <h5>Input your Idea:</h5>
+        <textarea
+          id="body"
+          name="details"
+          class="materialize-textarea"
+          required
+        >
+          <%=idea.details%></textarea
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <input
+        type="submit"
+        value="Save"
+        class="btn"
+        style="margin-right: 15px"
+      />
+      <a href="/dashboard" class="btn orange">Cancel</a>
+    </div>
+  </form>
+</div>

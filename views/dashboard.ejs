@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h6>Dashboard</h6>
+    <h5>Welcome <%=name%></h5>
+    <%- include("partials/header.ejs") %> <%- include("partials/addbtn.ejs") %>
+    <%- include("partials/messages.ejs") %> <%if(ideas!=""){%>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Details</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% ideas.forEach(idea => {%>
+        <tr>
+          <td><a href="/ideas/<%=idea._id %>"><%=idea.title %></a></td>
+          <td><%=truncate (idea.details, 10) %></td>
+          <td><%=moment(idea.createdat).format("MMMM Do YYYY, h:mm:ss a")%></td>
+          <td>
+            <a href="/ideas/edit/<%=idea._id%>" class="btn btn-float">
+              <i class="fas fa-edit"></i>
+            </a>
+
+            <form action="/ideas/<%=idea._id%>" method="POST" id="delete-form">
+              <input type="hidden" name="_method" value="DELETE" />
+              <button type="submit" class="btn btn red">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+
+        <%})%>
+      </tbody>
+    </table>
+
+    <%} else {%>
+    <h6>You've not created any Idea</h6>
+    <%}%>
+
+    <style>
+      .btn-float {
+        float: left;
+        margin-right: 5px;
+      }
+    </style>
+  </body>
+</html>
