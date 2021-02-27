@@ -5,6 +5,8 @@ const moment = require("moment");
 const { ensureAuthenticated } = require("../middleware/authenticate");
 const validateIdea=require("../middleware/validate")
 
+
+
 //get todo add
 router.get("/add", ensureAuthenticated, (req, res) => {
   res.render("../views/Ideas/add",);
@@ -45,13 +47,16 @@ router.post("/", ensureAuthenticated, async (req, res) => {
 router.get("/:id", ensureAuthenticated, async (req, res) => {
  
   try {
-    let idea = await Idea.findById(req.params.id).populate("user").lean();
+    
+    let idea = await Idea.findOne({_id:req.params.id}).populate("user").lean();
     if (idea) {
       res.render("../views/Ideas/show", { idea, moment });
     } 
+      
+     
   } catch (error) {
-    // return res.render("../views/errors/404")
-    console.log(error.message);
+    return res.render("../views/errors/404")
+    // console.log(error.message);
   }
 });
 

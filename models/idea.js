@@ -7,7 +7,7 @@ const properties={
   minlength: 2,
   maxlength: 50
 }
-const Ideaschema = mongoose.Schema({
+const Ideaschema = new mongoose.Schema({
   title:
    properties,
   
@@ -31,5 +31,6 @@ const Ideaschema = mongoose.Schema({
 });
 
 
-  
-module.exports = mongoose.model("Idea", Ideaschema);
+const Idea= mongoose.model("Idea", Ideaschema);
+
+module.exports = Idea

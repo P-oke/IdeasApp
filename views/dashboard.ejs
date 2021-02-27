@@ -6,8 +6,9 @@
     <title></title>
   </head>
   <body>
-    <h6>Dashboard</h6>
+    <%- include("partials/top.ejs") %>
     <h5>Welcome <%=name%></h5>
+    <p class="lead">Here are your ideas</p>
     <%- include("partials/header.ejs") %> <%- include("partials/addbtn.ejs") %>
     <%- include("partials/messages.ejs") %> <%if(ideas!=""){%>
     <table class="striped">

@@ -1,5 +1,5 @@
 {
-  "name": "IdeasApp",
+  "name": "ideasapp",
   "version": "1.0.0",
   "description": "An app where you can create ideas for your life",
   "main": "app.js",
@@ -19,7 +19,6 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
-    
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

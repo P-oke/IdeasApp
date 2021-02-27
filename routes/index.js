@@ -10,10 +10,11 @@ const moment = require("moment");
 router.get("/", ensureGuest, (req, res) => {
   res.render("../views/welcome");
 });
-// {user:req.user.id}
+// {{user:req.user._id}}
 router.get("/dashboard", ensureAuthenticated, async (req, res) => {
   try {
-    const ideas = await Idea.find().lean();
+    const ideas = await Idea.find({user:req.user.id}).lean();
+   
     res.render("../views/dashboard", {
       name: req.user.firstname,
       ideas,
